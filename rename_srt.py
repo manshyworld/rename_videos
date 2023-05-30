@@ -2,7 +2,7 @@ import os
 import re
 
 def rename_subtitles(folder_path):
-    video_extensions = [".mp4", ".mkv", ".avi"]  # Add more extensions if needed
+    video_extensions = ['.mp4', '.avi', '.mov', '.wmv', '.flv', '.mkv', '.mpg', '.mpeg', '.webm', '.3gp', '.vob']  # Add more extensions if needed
     subtitle_extension = ".srt"
     pattern = r"s(\d{2})e(\d{2})"  # Regular expression pattern to match episode number (e.g., s01e01)
 

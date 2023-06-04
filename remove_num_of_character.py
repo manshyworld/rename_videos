@@ -13,7 +13,7 @@ for filename in os.listdir(directory):
     # Check if the file is a regular file
     if os.path.isfile(os.path.join(directory, filename)):
         file_name, file_ext = os.path.splitext(filename)
-        new_file_name = file_name[:13].replace('.', ' ') + file_ext
+        new_file_name = file_name[10:].replace('.', ' ') + file_ext
         new_file_path = os.path.join(directory, new_file_name)
         old_file_path = os.path.join(directory, filename)
 

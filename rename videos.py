@@ -9,7 +9,8 @@ file_names = []
 extensions = []
 
 # Define a regex pattern to match video qualities, specific words, additional patterns, video codecs, web, web-dl, x264, x265, hd, cam, consecutive spaces, and [EgyBest]
-pattern = re.compile(r'\b\d{3,4}p\b|HDCAM|Wecima|tube|dvd|rip|\[egybest\]|web[- ]?dl|x264|x265|h264|mpeg4|hd|bluray|cam| {2,}|\[EgyBest\]', re.IGNORECASE)
+pattern = re.compile(r'\b\d{3,4}p\b|\[([^]]+)\]|HDCAM|Arabseed|myegy|asa|asd|dmd|Downloadhub|Wecima|tube|ppv|dvd|hc|etrg|MaZiKa2daY|CoM|ppv|lkrg|Cima4U|cima4up|tv|yify|WEB|XviD|MP3-FGT|rip|web[- ]?dl|x264|x265|h264|mpeg4|hd|bluray|cam| {2,}|\[EgyBest\]', re.IGNORECASE)
+# pattern = r'\b720p brrip sujaidr\b'
 
 # Iterate over files in the directory
 for file in os.listdir(directory):
@@ -19,7 +20,7 @@ for file in os.listdir(directory):
         file_name, file_extension = os.path.splitext(file)
 
         # Remove video qualities, specific words, additional patterns, video codecs, web, web-dl, x264, x265, hd, cam, consecutive spaces, and [EgyBest] from the file name
-        file_name = re.sub(pattern, ' ', file_name)
+        file_name = re.sub(pattern, '', file_name)
 
         # Replace dots with spaces in the file name
         file_name = file_name.replace(".", " ")

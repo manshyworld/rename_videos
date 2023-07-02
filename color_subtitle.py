@@ -27,6 +27,28 @@ def color_subtitle_file(file_path):
 
     print("File has been modified.")
 
-# Usage
-subtitle_file_path = input("Enter the path to the SRT file: ")
-color_subtitle_file(subtitle_file_path)
+def remove_empty_lines(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+
+    lines = [line.strip() for line in lines]
+    lines = [line for line in lines if line]  # Remove empty lines
+
+    updated_lines = []
+    for line in lines:
+        if line.isdigit():
+            if len(updated_lines) > 0 and updated_lines[-1] != "":
+                updated_lines.append("")
+            updated_lines.append(line)
+        else:
+            updated_lines.append(line)
+
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write('\n'.join(updated_lines))
+
+# Usage color
+srt_filename = input("Enter the path to the SRT file: ")
+color_subtitle_file(srt_filename)
+
+# Usage fix lines
+remove_empty_lines(srt_filename)
